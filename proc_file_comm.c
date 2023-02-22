@@ -13,8 +13,9 @@ int proc_file_commands(char *file_path, int *exe_ret);
 
 int cant_open(char *file_path)
 {
-	char *error, *hist_str;
+	char *name = NULL, *error, *hist_str;
 	int len;
+	int hist = 0;
 
 	hist_str = _itoa(hist);
 	if (!hist_str)
@@ -60,7 +61,6 @@ int proc_file_commands(char *file_path, int *exe_ret)
 	char buffer[120];
 	int ret;
 
-	hist = 0;
 	file = open(file_path, O_RDONLY);
 	if (file == -1)
 	{
